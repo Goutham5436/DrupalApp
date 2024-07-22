@@ -1,0 +1,5 @@
+name: moduleone
+type: module
+description: this is a module for practice
+core_version_requirement: ^10
+package: moduleone
