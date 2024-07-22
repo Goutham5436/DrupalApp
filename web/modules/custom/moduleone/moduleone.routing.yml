@@ -1,0 +1,7 @@
+moduleone.helloworld:
+  path: '/hello'
+  defaults:
+    _title: 'Hello World'
+    _controller: '\Drupal\moduleone\Controller\FirstController::moduleone'
+  requirements:
+    _permission: 'access content'  
