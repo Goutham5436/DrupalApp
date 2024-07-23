@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function moduleone_theme($existing, $type, $theme, $path) {
+    return [
+      'moduleone_template' => [
+        'variables' => [
+            'items' => [],
+            'paragraph' => NULL,
+        ],
+        'template' => 'moduleone-template',
+      ],
+    ];
+  }

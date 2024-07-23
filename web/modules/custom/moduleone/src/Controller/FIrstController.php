@@ -26,14 +26,14 @@ class FirstController extends ControllerBase {
     }
 
     public function moduleone() {
-      $render_array = [
-        'Hello_world' => [
-          '#type' => 'markup',
-          '#markup' => t('Hello World, 
-                            god bless everyone'),
-          ],
-        ];  
-
+    //   $render_array = [
+    //     'Hello_world' => [
+    //       '#type' => 'markup',
+    //       '#markup' => t('Hello World, 
+    //                         god bless everyone'),
+    //       ],
+    //     ];  
+      $msg = 'this is text written in controller';
       //query to get all published pages
     // $query = \Drupal::entityQuery('node'); //this is a static method. 
 
@@ -53,26 +53,28 @@ class FirstController extends ControllerBase {
 
       
     //Prepare contents to be displayed.
-      $output = [];
+      $outputs = [];
       foreach ($nodes as $node) {
         // $title = $node -> getTitle();
         // $body = $node -> get('Body') -> value;
         // $output .= '<h2>' .$title . '</h2>';
         // $output .= '<p' . $body . '</p>';
         //dump($node->getTitle());
-        $output[] = [
-            '#markup' => '<h2>' . $node->getTitle() . '</h2><p>' . $node->body->value . '</p>',
+        $outputs[] = [
+          'title' => strip_tags($node->getTitle()),
+          'body' => strip_tags($node->body->value),
         ];
+       // dump($outputs);
+        
     }
-
-    //dump($output);
-      $render_array['basic_page'] = [
-        '#theme' => 'item_list',
-        '#items' => $output,
-      ];
       
       //return the combine render array
-      return $render_array;
+      return [
+        '#theme' => 'moduleone_template',
+        '#items' => $outputs,
+        '#paragraph' => $msg,
+      ];
+    //   dump($output);
     }
 
 
