@@ -1,0 +1,4 @@
+services:
+  moduleone.date_formatter:
+    class: Drupal\moduleone\services\DateFormatter
+   

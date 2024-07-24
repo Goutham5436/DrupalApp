@@ -11,18 +11,24 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use \Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Node\Entity\Node;
+use Drupal\moduleone\services\DateFormatter;
 
 class FirstController extends ControllerBase {
 
     /**Lines  18 - 26 are code for dependency injection. */
     protected $entityQuery;
+    protected $dateFormatterStamp;
 
-    public function __construct(EntityTypeManagerInterface $entity_query) { //$entity_query is another variable which is type hinted with queryFactroy
+    public function __construct(EntityTypeManagerInterface $entity_query,DateFormatter $date_formatter) { //$entity_query is another variable which is type hinted with queryFactroy
         $this->entityQuery = $entity_query;
+        $this->dateFormatterStamp = $date_formatter;
     }
 
     public static function create(ContainerInterface $container) {
-        return new static ($container->get('entity_type.manager'));
+        return new static(
+            $container->get('entity_type.manager'),
+            $container->get('moduleone.date_formatter')
+        );
     }
 
     public function moduleone() {
@@ -60,11 +66,14 @@ class FirstController extends ControllerBase {
         // $output .= '<h2>' .$title . '</h2>';
         // $output .= '<p' . $body . '</p>';
         //dump($node->getTitle());
+        $time = $node->getCreatedTime();
+        $formatted_date = $this->dateFormatterStamp->dateFormatter($time);
         $outputs[] = [
           'title' => strip_tags($node->getTitle()),
           'body' => strip_tags($node->body->value),
+          'timestamp' => $formatted_date,
         ];
-       // dump($outputs);
+        // dump($outputs);
         
     }
       
