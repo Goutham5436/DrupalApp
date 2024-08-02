@@ -70,6 +70,7 @@ class FirstController extends ControllerBase {
         // $output .= '<h2>' .$title . '</h2>';
         // $output .= '<p' . $body . '</p>';
         //dump($node->getTitle());
+<<<<<<< HEAD
         $time = $node->getCreatedTime();
         $formatted_date = $this->dateFormatterStamp->dateFormatter($time);
         $stringLengthTwo = $this->stringLengthOne->stringlen($node->body->value);
@@ -80,6 +81,13 @@ class FirstController extends ControllerBase {
           'stringbdy' => $stringLengthTwo,
         ];
         // dump($outputs);
+=======
+        $outputs[] = [
+          'title' => strip_tags($node->getTitle()),
+          'body' => strip_tags($node->body->value),
+        ];
+       // dump($outputs);
+>>>>>>> b562d6b1 (custom twig template in Custom Module)
         
     }
       
