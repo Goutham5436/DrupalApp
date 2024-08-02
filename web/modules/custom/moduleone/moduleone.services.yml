@@ -1,0 +1,7 @@
+services:
+  moduleone.date_formatter:
+    class: Drupal\moduleone\services\DateFormatter
+  
+  moduleone.string_length:
+    class: Drupal\moduleone\services\StringLength
+   

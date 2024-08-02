@@ -1,0 +1,15 @@
+<div>
+  <ul>
+    {% for item in items %}
+      <li>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.body }}</p>
+        <p>Created on : {{ item.timestamp }}</p>
+        <p>Length of the body is : {{ item.stringbdy }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  <p>{{ paragraph }}</p>
+</div>
+
+
