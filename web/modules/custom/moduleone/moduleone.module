@@ -13,6 +13,10 @@ function moduleone_theme($existing, $type, $theme, $path) {
         'template' => 'moduleone-template',
       ],
     ];
+<<<<<<< HEAD
   }
 
   
+=======
+  }
+>>>>>>> b562d6b1 (custom twig template in Custom Module)
