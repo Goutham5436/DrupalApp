@@ -5,3 +5,19 @@ moduleone.helloworld:
     _controller: '\Drupal\moduleone\Controller\FirstController::moduleone'
   requirements:
     _permission: 'access content'  
+
+moduleone_ajax_form.input_form:
+  path: '/myAjaxForm/input'
+  defaults:
+    _title: 'Display Form'
+    _form: '\Drupal\moduleone\Form\MyAjaxForm'
+  requirements:
+    _permission: 'access content'
+
+moduleone_ajax_form.output_page:
+  path: '/myAjaxForm/output/{name}'
+  defaults:
+    _title: 'Displaying the result of Form'
+    _controller: '\Drupal\moduleone\Controller\AjaxFormController::output'
+  requirements:
+    _permission: 'access content'
