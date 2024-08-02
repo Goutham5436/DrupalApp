@@ -13,16 +13,4 @@ function moduleone_theme($existing, $type, $theme, $path) {
         'template' => 'moduleone-template',
       ],
     ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-  }
-
-  
-=======
-  }
->>>>>>> b562d6b1 (custom twig template in Custom Module)
-=======
-  }
-
-  
->>>>>>> 898f8ce1 (created new stringlength services)
+}

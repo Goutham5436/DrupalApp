@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 services:
   moduleone.date_formatter:
     class: Drupal\moduleone\services\DateFormatter
@@ -7,4 +6,3 @@ services:
   moduleone.string_length:
     class: Drupal\moduleone\services\StringLength
    
->>>>>>> 898f8ce1 (created new stringlength services)
