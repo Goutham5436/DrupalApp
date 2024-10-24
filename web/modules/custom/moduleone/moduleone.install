@@ -1,0 +1,31 @@
+/**
+* Implements hook_schema().
+*/
+function moduleone_schema() {
+  $schema['my_custom_form_data'] = [
+    'description' => 'Stores form submissions',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique submission ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Submitted name.',
+      ],
+      'email' => [  // Add the email field
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,  // Change to FALSE if you want to allow NULL values
+        'description' => 'Submitted email.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+
+}
